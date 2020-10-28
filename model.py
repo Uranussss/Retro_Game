@@ -7,7 +7,7 @@ from PyQt5.QtWidgets import *
 from PyQt5.QtGui import *
 from PyQt5.QtCore import *
 
-from Tetris import BOARD_DATA, Shape, Tetrominoe
+from Tetris import BOARD_DATA, Shape
 from AI_agent import TETRIS_AI
 from utils import drawSquare, SidePanel, Board
 
@@ -93,7 +93,7 @@ class GameModel(QMainWindow):
     # todo
     def keyPressEvent(self, event):
 
-        if not self.isStarted or self.curPiece.shape() == Tetrominoe.shapeNone:
+        if not self.isStarted or self.curPiece.shape() == Shape.shapeNone:
             super(GameModel, self).keyPressEvent(event)
             return
 

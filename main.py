@@ -42,9 +42,11 @@ class Tetris(QMainWindow):
         self.tboard.msg2Statusbar[str].connect(self.statusbar.showMessage)
 
         self.start()
-
+        self.setWindowIcon(QIcon('tetris.jpg'))
         self.center()
         self.setWindowTitle('Tetris')
+
+        # if test this file only, the below sentence is necessary.
         # self.show()
 
         self.setFixedSize(self.tboard.width() + self.sidePanel.width(),

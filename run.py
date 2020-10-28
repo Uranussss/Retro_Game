@@ -22,7 +22,6 @@ class UI(QMainWindow):
         self.initUI()  # edit the UI, using this function named initUI
 
     def initUI(self):
-        self.signal = 0
         # set the typeface
         QToolTip.setFont(QFont('SansSerif', 10))
 
@@ -80,15 +79,17 @@ if __name__ == '__main__':
     print("would you like to play this Tetris game? Type '1' or '0' please.")
     choice = input()
     if choice == '1':
-        print("would you like to watch AI playing? Type 'True' or 'False' please.")
+        print("would you like to watch AI playing? Type '1' or '0' please.")
         watch = input()
-        if watch == True:
+        if watch == '1':
             ai = TETRIS_AI
+            speed = 20
         else:
             ai = None
+            speed = int(args.value_of_speed)
         app = QApplication(sys.argv)
-        new = Tetris(int(args.value_of_speed))
-        ex = UI(args.value_of_speed)
+        new = Tetris(speed, ai)
+        ex = UI(speed)
         ex.start.clicked.connect(new.show)
         sys.exit(app.exec_())
     else:
